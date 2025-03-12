@@ -11,8 +11,7 @@ public class BoundaryEmmenager {
 
 	public void emmenager(String nomVisiteur) {
 		if (controlEmmenager.isHabitant(nomVisiteur)) {
-			System.out.println(
-					"Mais vous êtes déjà un habitant du village !");
+			System.out.println("Mais vous êtes déjà un habitant du village !");
 		} else {
 			StringBuilder question = new StringBuilder();
 			question.append("Êtes-vous :\n");
@@ -27,19 +26,31 @@ public class BoundaryEmmenager {
 					break;
 
 				case 2:
-					//TODO a completer
+					int force;
+					System.out.println("Bienvenu villageois" + nomVisiteur);
+					System.out.println("Quelle est votre force ?");
+					force = entrerClavier();
+
+					controlEmmenager.ajouterGaulois(nomVisiteur, force);
 					break;
 
 				default:
-					System.out
-							.println("Vous devez choisir le chiffre 1 ou 2 !");
+					System.out.println("Vous devez choisir le chiffre 1 ou 2 !");
 					break;
 				}
 			} while (choixUtilisateur != 1 && choixUtilisateur != 2);
 		}
 	}
 
+	public ControlEmmenager getControlEmmenager() {
+		return controlEmmenager;
+	}
+
+	public void setControlEmmenager(ControlEmmenager controlEmmenager) {
+		this.controlEmmenager = controlEmmenager;
+	}
+
 	private void emmenagerDruide(String nomVisiteur) {
-		//TODO a completer
+		// TODO a completer
 	}
 }
